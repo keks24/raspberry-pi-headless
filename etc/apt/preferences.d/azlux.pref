@@ -1,0 +1,17 @@
+# custom - set priority very low in general, but for "log2ram" high
+
+# apt policy | grep "azlux"
+## 500 http://packages.azlux.fr/debian bookworm/main armhf Packages
+##      release o=packages.azlux.fr,a=stable,n=bookworm,l=packages.azlux.fr,c=main,b=armhf
+##      origin packages.azlux.fr
+## 500 http://packages.azlux.fr/debian bookworm/main arm64 Packages
+##      release o=packages.azlux.fr,a=stable,n=bookworm,l=packages.azlux.fr,c=main,b=arm64
+##      origin packages.azlux.fr
+
+Package: *
+Pin: origin packages.azlux.fr
+Pin-Priority: 50
+
+Package: log2ram
+Pin: origin packages.azlux.fr
+Pin-Priority: 100
