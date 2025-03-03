@@ -50,3 +50,10 @@
 /usr/bin/systemctl disable \
     --now \
     apt-daily-upgrade.timer
+
+# mask unnecessary systemd service units
+/usr/bin/systemctl mask \
+    --now \
+    systemd-binfmt.service \
+    proc-sys-fs-binfmt_misc.mount \
+    proc-sys-fs-binfmt_misc.automount
