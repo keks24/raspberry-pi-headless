@@ -35,6 +35,9 @@
 /usr/bin/apt install \
     log2ram
 
+# set country for wifi frequencies
+/usr/bin/raspi-config nonint do_wifi_country DE
+
 # enable necessary systemd service units
 /usr/bin/systemctl enable \
     --now \
