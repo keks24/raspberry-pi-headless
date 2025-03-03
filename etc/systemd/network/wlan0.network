@@ -9,6 +9,7 @@ RequiredForOnline=routable
 
 [Network]
 #DHCP=v4
+#IgnoreCarrierLoss=3s
 Address=192.168.1.81/24
 Gateway=192.168.1.1
 DNS=192.168.1.1
