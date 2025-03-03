@@ -17,3 +17,8 @@
     --output-document="/usr/share/keyrings/azlux-archive-keyring.gpg"
 /usr/bin/apt install \
     log2ram
+
+# disable unnecessary systemd service units
+/usr/bin/systemctl disable \
+    --now \
+    apt-daily-upgrade.timer
