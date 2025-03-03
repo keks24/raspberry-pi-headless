@@ -3,6 +3,10 @@
 [Match]
 # wildcards can be used here
 Name=eth0
+
+[Link]
+RequiredForOnline=routable
+
 [Network]
 #DHCP=v4
 Address=192.168.1.80/24
