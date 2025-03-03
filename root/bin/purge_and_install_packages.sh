@@ -3,6 +3,7 @@
 /usr/bin/apt purge \
     avahi-daemon \
     nano \
+    network-manager \
     vim-common
 
 # update package cache
