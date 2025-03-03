@@ -1,0 +1,10 @@
+# custom - set static ip address for "eth0"
+## also enable "systemd-networkd.service"
+[Match]
+# wildcards can be used here
+Name=eth0
+[Network]
+#DHCP=v4
+Address=192.168.1.80/24
+Gateway=192.168.1.1
+DNS=192.168.1.1

@@ -1,0 +1,10 @@
+# custom - set static ip address for "wlan0"
+## also enable "systemd-networkd.service" and "wpa_supplicant@wlan0.service"
+[Match]
+# wildcards can be used here
+Name=wlan0
+[Network]
+#DHCP=v4
+Address=192.168.1.81/24
+Gateway=192.168.1.1
+DNS=192.168.1.1
