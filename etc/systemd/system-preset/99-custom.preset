@@ -1,5 +1,6 @@
 # custom - add presets for custom systemd service units
 # enable
+enable sshd.service
 
 # disable
 disable apt-daily-upgrade.timer
