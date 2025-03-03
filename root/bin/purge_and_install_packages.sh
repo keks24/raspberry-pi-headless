@@ -35,6 +35,14 @@
 /usr/bin/apt install \
     log2ram
 
+# enable necessary systemd service units
+/usr/bin/systemctl enable \
+    --now \
+    sshd.service \
+    systemd-networkd.service \
+    wpa_supplicant \
+    wpa_supplicant@wlan0.service
+
 # disable unnecessary systemd service units
 /usr/bin/systemctl disable \
     --now \
