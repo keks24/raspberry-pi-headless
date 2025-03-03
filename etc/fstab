@@ -1,0 +1,8 @@
+proc                    /proc           proc    defaults                                            0   0
+PARTUUID=e5ba9ad5-01    /boot/firmware  vfat    defaults                                            0   2
+# custom - mount decrypted root partition with optimised options
+PARTUUID=e5ba9ad5-02    /               ext4    defaults,noatime,nodiratime,lazytime,commit=600     0   1
+# custom - 20250225T205058+0100 - rfischer: mount temporary directories to ram
+tmpfs                   /tmp            tmpfs   rw,nosuid,nodev,relatime,mode=1777                  0   0
+# better not include "/var/cache", because of "/var/cache/apt/archives/"
+#tmpfs                   /var/cache      tmpfs   rw,nosuid,nodev,size=512m,relatime,mode=1777        0   0
