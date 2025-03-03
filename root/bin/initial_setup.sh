@@ -49,6 +49,7 @@
 # disable unnecessary systemd service units
 /usr/bin/systemctl disable \
     --now \
+    apt-daily.timer \
     apt-daily-upgrade.timer
 
 # mask unnecessary systemd service units
