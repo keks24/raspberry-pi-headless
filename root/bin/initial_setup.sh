@@ -16,8 +16,11 @@
 ############################################################################
 
 # disable swap
-/usr/sbin/dphys-swapfile swapoff
-/usr/sbin/dphys-swapfile uninstall
+if [[ -e "/usr/sbin/dphys-swapfile" ]]
+then
+    /usr/sbin/dphys-swapfile swapoff
+    /usr/sbin/dphys-swapfile uninstall
+fi
 
 # purge packages and their configuration files
 /usr/bin/apt purge \
