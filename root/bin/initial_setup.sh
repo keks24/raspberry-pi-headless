@@ -15,11 +15,18 @@
 # limitations under the License.                                           #
 ############################################################################
 
+# disable swap
+/usr/sbin/dphys-swapfile swapoff
+/usr/sbin/dphys-swapfile uninstall
+
 # purge packages and their configuration files
 /usr/bin/apt purge \
     avahi-daemon \
+    dphys-swapfile \
     nano \
     network-manager \
+    pi-bluetooth \
+    triggerhappy \
     vim-common
 
 # update package cache
@@ -34,6 +41,10 @@
     --output-document="/usr/share/keyrings/azlux-archive-keyring.gpg"
 /usr/bin/apt install \
     log2ram
+
+# clean up
+/usr/bin/apt autoclean
+/usr/bin/apt autoremove
 
 # set country for wifi frequencies
 /usr/bin/raspi-config nonint do_wifi_country DE
@@ -50,7 +61,12 @@
 /usr/bin/systemctl disable \
     --now \
     apt-daily.timer \
-    apt-daily-upgrade.timer
+    apt-daily.service \
+    apt-daily-upgrade.timer \
+    apt-daily-upgrade.service \
+    avahi-daemon.service \
+    dphys-swapfile.service \
+    bluetooth.service
 
 # mask unnecessary systemd service units
 /usr/bin/systemctl mask \

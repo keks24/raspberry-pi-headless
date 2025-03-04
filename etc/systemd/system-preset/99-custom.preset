@@ -1,8 +1,20 @@
 # custom - add presets for custom systemd service units
 # enable
+## timer units
+
+
+## service units
 enable sshd.service
 enable wpa_supplicant@wlan0.service
 
 # disable
+## timer units
+disable apt-daily.timer
 disable apt-daily-upgrade.timer
-systemd-network-generator.service
+
+## service units
+disable apt-daily.service
+disable apt-daily-upgrade.service
+disable avahi-daemon.service
+disable bluetooth.service
+disable systemd-network-generator.service
