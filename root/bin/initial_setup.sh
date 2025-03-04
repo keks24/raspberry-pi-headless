@@ -53,27 +53,42 @@ fi
 /usr/bin/raspi-config nonint do_wifi_country DE
 
 # enable necessary systemd service units
-/usr/bin/systemctl enable \
-    --now \
-    ssh.service \
-    systemd-networkd.service \
-    wpa_supplicant \
-    wpa_supplicant@wlan0.service
+declare -a service_unit_enable_array
+service_unit_enable_array=(\
+                                "ssh.service" \
+                                "systemd-networkd.service" \
+                                "wpa_supplicant.service" \
+                                "wpa_supplicant@wlan0.service" \
+                          )
+for service_unit_enable in "${service_unit_enable_array[@]}"
+do
+    /usr/bin/systemctl enable --now "${service_unit_enable}"
+done
 
 # disable unnecessary systemd service units
-/usr/bin/systemctl disable \
-    --now \
-    apt-daily.timer \
-    apt-daily.service \
-    apt-daily-upgrade.timer \
-    apt-daily-upgrade.service \
-    avahi-daemon.service \
-    dphys-swapfile.service \
-    bluetooth.service
+declare -a service_unit_disable_array
+service_unit_disable_array=(\
+                                "apt-daily.timer" \
+                                "apt-daily.service" \
+                                "apt-daily-upgrade.timer" \
+                                "apt-daily-upgrade.service" \
+                                "avahi-daemon.service" \
+                                "dphys-swapfile.service" \
+                                "bluetooth.service" \
+                           )
+for service_unit_disable in "${service_unit_disable_array[@]}"
+do
+    /usr/bin/systemctl disable --now "${service_unit_disable}"
+done
 
 # mask unnecessary systemd service units
-/usr/bin/systemctl mask \
-    --now \
-    systemd-binfmt.service \
-    proc-sys-fs-binfmt_misc.mount \
-    proc-sys-fs-binfmt_misc.automount
+declare -a service_unit_mask_array
+service_unit_mask_array=(\
+                            "systemd-binfmt.service" \
+                            "proc-sys-fs-binfmt_misc.mount" \
+                            "proc-sys-fs-binfmt_misc.automount" \
+                        )
+for service_unit_mask in "${service_unit_mask_array[@]}"
+do
+    /usr/bin/systemctl mask --now "${service_unit_mask}"
+done
