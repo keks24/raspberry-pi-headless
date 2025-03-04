@@ -52,7 +52,7 @@
 # enable necessary systemd service units
 /usr/bin/systemctl enable \
     --now \
-    sshd.service \
+    ssh.service \
     systemd-networkd.service \
     wpa_supplicant \
     wpa_supplicant@wlan0.service
