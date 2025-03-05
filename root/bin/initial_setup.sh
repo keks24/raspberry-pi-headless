@@ -15,6 +15,9 @@
 # limitations under the License.                                           #
 ############################################################################
 
+# global variables
+script_directory_path="${0%/*}"
+
 # disable swap
 if [[ -e "/usr/sbin/dphys-swapfile" ]]
 then
@@ -101,3 +104,6 @@ for service_unit_mask in "${service_unit_mask_array[@]}"
 do
     /usr/bin/systemctl mask --now "${service_unit_mask}"
 done
+
+# include custom configurations
+source "${script_directory_path}/initial_setup_local.sh"
