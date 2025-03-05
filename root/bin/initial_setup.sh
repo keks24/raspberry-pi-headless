@@ -37,7 +37,6 @@ echo -e "\n\e[01;33mPurging packages...\e[0m" >&2
 # update package cache
 echo -e "\n\e[01;33mUpdating package cache...\e[0m" >&2
 /usr/bin/apt update
-
 # install packages
 echo -e "\n\e[01;33mInstalling packages...\e[0m" >&2
 /usr/bin/apt install \
