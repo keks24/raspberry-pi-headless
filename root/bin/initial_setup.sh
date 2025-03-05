@@ -81,8 +81,9 @@ service_unit_disable_array=(\
                                 "apt-daily-upgrade.timer" \
                                 "apt-daily-upgrade.service" \
                                 "avahi-daemon.service" \
-                                "dphys-swapfile.service" \
                                 "bluetooth.service" \
+                                "dphys-swapfile.service" \
+                                "systemd-network-generator.service"
                            )
 for service_unit_disable in "${service_unit_disable_array[@]}"
 do
