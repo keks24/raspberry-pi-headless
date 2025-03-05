@@ -18,13 +18,13 @@
 # disable swap
 if [[ -e "/usr/sbin/dphys-swapfile" ]]
 then
-    echo -e "\e[01;33mRemoving swapfile...\e[0m" >&2
+    echo -e "\e[01;33mRemoving swapfile...\e[0m\n" >&2
     /usr/sbin/dphys-swapfile swapoff
     /usr/sbin/dphys-swapfile uninstall
 fi
 
 # purge packages and their configuration files
-echo -e "\e[01;33mPurging packages...\e[0m" >&2
+echo -e "\n\e[01;33mPurging packages...\e[0m" >&2
 /usr/bin/apt purge \
     avahi-daemon \
     dphys-swapfile \
@@ -35,11 +35,11 @@ echo -e "\e[01;33mPurging packages...\e[0m" >&2
     vim-common
 
 # update package cache
-echo -e "\e[01;33mUpdating package cache...\e[0m" >&2
+echo -e "\n\e[01;33mUpdating package cache...\e[0m" >&2
 /usr/bin/apt update
 
 # install packages
-echo -e "\e[01;33mInstalling packages...\e[0m" >&2
+echo -e "\n\e[01;33mInstalling packages...\e[0m" >&2
 /usr/bin/apt install \
     neovim
 
@@ -50,16 +50,16 @@ echo -e "\e[01;33mInstalling packages...\e[0m" >&2
     log2ram
 
 # clean up
-echo -e "\e[01;33mCleaning up packages...\e[0m" >&2
+echo -e "\n\e[01;33mCleaning up packages...\e[0m" >&2
 /usr/bin/apt autoclean
 /usr/bin/apt autoremove
 
 # set country for wifi frequencies
-echo -e "\e[01;33mSetting country for wifi frequencies...\e[0m" >&2
+echo -e "\n\e[01;33mSetting country for wifi frequencies...\e[0m" >&2
 /usr/bin/raspi-config nonint do_wifi_country DE
 
 # enable necessary systemd service units
-echo -e "\e[01;33mEnabling necessary systemd service units...\e[0m" >&2
+echo -e "\n\e[01;33mEnabling necessary systemd service units...\e[0m" >&2
 declare -a service_unit_enable_array
 service_unit_enable_array=(\
                                 "ssh.service" \
@@ -73,7 +73,7 @@ do
 done
 
 # disable unnecessary systemd service units
-echo -e "\e[01;33mDisabling unnecessary systemd service units...\e[0m" >&2
+echo -e "\n\e[01;33mDisabling unnecessary systemd service units...\e[0m" >&2
 declare -a service_unit_disable_array
 service_unit_disable_array=(\
                                 "apt-daily.timer" \
@@ -91,7 +91,7 @@ do
 done
 
 # mask unnecessary systemd service units
-echo -e "\e[01;33mMasking unnecessary systemd service units...\e[0m" >&2
+echo -e "\n\e[01;33mMasking unnecessary systemd service units...\e[0m" >&2
 declare -a service_unit_mask_array
 service_unit_mask_array=(\
                             "systemd-binfmt.service" \
