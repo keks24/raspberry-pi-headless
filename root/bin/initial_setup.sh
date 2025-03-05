@@ -63,8 +63,6 @@ declare -a service_unit_enable_array
 service_unit_enable_array=(\
                                 "ssh.service" \
                                 "systemd-networkd.service" \
-                                "wpa_supplicant.service" \
-                                "wpa_supplicant@wlan0.service" \
                           )
 for service_unit_enable in "${service_unit_enable_array[@]}"
 do
@@ -82,7 +80,9 @@ service_unit_disable_array=(\
                                 "avahi-daemon.service" \
                                 "bluetooth.service" \
                                 "dphys-swapfile.service" \
-                                "systemd-network-generator.service"
+                                "systemd-network-generator.service" \
+                                "wpa_supplicant.service" \
+                                "wpa_supplicant@wlan0.service" \
                            )
 for service_unit_disable in "${service_unit_disable_array[@]}"
 do
