@@ -68,6 +68,7 @@ dtoverlay=disable-bt
 ## see also "/etc/modprobe.d/99-custom.conf"
 dtoverlay=disable-wifi
 # hdmi
+## not working for some reason; see "vcgencmd measure_clock hdmi".
 dtparam=hdmi=off
 dtoverlay=vc4-kms-v3d-pi4,nohdmi0
 dtoverlay=vc4-kms-v3d-pi4,nohdmi1
