@@ -34,6 +34,7 @@ echo -e "\n\e[01;33mPurging packages...\e[0m" >&2
     nano \
     network-manager \
     pi-bluetooth \
+    rpicam-apps-lite \
     triggerhappy \
     vim-common
 
