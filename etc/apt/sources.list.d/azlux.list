@@ -1,2 +1,2 @@
 # custom - add repository to install "log2ram"
-deb [signed-by=/usr/share/keyrings/azlux-archive-keyring.gpg] http://packages.azlux.fr/debian/ bookworm main
+deb [signed-by=/etc/apt/keyrings/azlux-archive-keyring.gpg] http://packages.azlux.fr/debian/ bookworm main

@@ -48,7 +48,7 @@ echo -e "\n\e[01;33mInstalling packages...\e[0m" >&2
 
 # install "log2ram"; see also "/etc/apt/sources.list.d/azlux.list"
 /usr/bin/wget "https://azlux.fr/repo.gpg" \
-    --output-document="/usr/share/keyrings/azlux-archive-keyring.gpg"
+    --output-document="/etc/apt/keyrings/azlux-archive-keyring.gpg"
 /usr/bin/apt install \
     log2ram
 
